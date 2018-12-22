@@ -15,6 +15,7 @@
 		684694C121CE334800902499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684694BF21CE334800902499 /* LaunchScreen.storyboard */; };
 		684694CC21CE334800902499 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684694CB21CE334800902499 /* TaskTests.swift */; };
 		684694D721CE334800902499 /* TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684694D621CE334800902499 /* TaskUITests.swift */; };
+		684694E521CE6EE300902499 /* 0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 684694E421CE6EE300902499 /* 0.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		684694D221CE334800902499 /* TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		684694D621CE334800902499 /* TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITests.swift; sourceTree = "<group>"; };
 		684694D821CE334800902499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		684694E421CE6EE300902499 /* 0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				684694B521CE334600902499 /* ViewController.swift */,
 				684694B721CE334600902499 /* Main.storyboard */,
 				684694BD21CE334800902499 /* Assets.xcassets */,
+				684694E421CE6EE300902499 /* 0.jpeg */,
 				684694BF21CE334800902499 /* LaunchScreen.storyboard */,
 				684694C221CE334800902499 /* Info.plist */,
 				684694BA21CE334600902499 /* Task.xcdatamodeld */,
@@ -234,6 +237,7 @@
 			files = (
 				684694C121CE334800902499 /* LaunchScreen.storyboard in Resources */,
 				684694BE21CE334800902499 /* Assets.xcassets in Resources */,
+				684694E521CE6EE300902499 /* 0.jpeg in Resources */,
 				684694B921CE334600902499 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KDEH69VUR;
 				INFOPLIST_FILE = Task/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +451,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MobileNOC.eg.Task;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -457,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KDEH69VUR;
 				INFOPLIST_FILE = Task/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MobileNOC.eg.Task;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
