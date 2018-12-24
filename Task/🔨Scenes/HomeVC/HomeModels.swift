@@ -31,7 +31,7 @@ enum Home
             var  status : Int
         }
         class  Response : Mappable {
-            var content : ContentModel?
+            var content : [ContentModel]?
             var totalPages : Int?
             var totalElements : Int?
             var numberOfElements : Int?
@@ -50,33 +50,35 @@ enum Home
                 
             }
         }
-        class  ContentModel : Mappable {
-            var id : Int?
-            var name : String?
-            var ipAddress : String?
-            var ipSubnetMask : String?
-            var status : StatusModel?
-            required init?(map: Map){
-                
-            }
-            func mapping(map: Map) {
-                id <- map["id"]
-                name <- map ["name"]
-                ipAddress <- map["ipAddress"]
-                ipSubnetMask <- map["ipSubnetMask"]
-                status <- map["status"]
-                
-            }
-        }
-        class  StatusModel : Mappable {
-            var id : Int?
-                 required init?(map: Map){
-                
-            }
-            func mapping(map: Map) {
-                id <- map["id"]
-            }
-        }
-
-    }
+        
 }
+    
+}
+    class  ContentModel : Mappable {
+        var id : Int?
+        var name : String?
+        var ipAddress : String?
+        var ipSubnetMask : String?
+        var status : StatusModel?
+        required init?(map: Map){
+            
+        }
+        func mapping(map: Map) {
+            id <- map["id"]
+            name <- map ["name"]
+            ipAddress <- map["ipAddress"]
+            ipSubnetMask <- map["ipSubnetMask"]
+            status <- map["status"]
+            
+        }
+    }
+    class  StatusModel : Mappable {
+        var id : Int?
+        required init?(map: Map){
+            
+        }
+        func mapping(map: Map) {
+            id <- map["id"]
+        }
+    }
+

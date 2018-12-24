@@ -49,8 +49,8 @@
                                     <constraint firstAttribute="width" constant="1" id="CUp-it-snJ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwI-sg-npO">
-                                <rect key="frame" x="124" y="50.5" width="112.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwI-sg-npO">
+                                <rect key="frame" x="124" y="50.5" width="378" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -84,6 +84,7 @@
                             <constraint firstItem="MxN-Za-rLW" firstAttribute="top" secondItem="xdw-Ia-GqJ" secondAttribute="top" constant="5" id="fRX-cH-3fb"/>
                             <constraint firstItem="lo9-Cd-38E" firstAttribute="leading" secondItem="xdw-Ia-GqJ" secondAttribute="leading" constant="16" id="jeV-sh-sq0"/>
                             <constraint firstItem="Ob2-kG-2Pr" firstAttribute="centerX" secondItem="xdw-Ia-GqJ" secondAttribute="centerX" id="kBe-Ua-Ilb"/>
+                            <constraint firstItem="37k-46-lB5" firstAttribute="leading" secondItem="QwI-sg-npO" secondAttribute="trailing" constant="8" id="kFe-At-JSt"/>
                             <constraint firstItem="lo9-Cd-38E" firstAttribute="centerY" secondItem="xdw-Ia-GqJ" secondAttribute="centerY" id="n4m-cq-ckY"/>
                             <constraint firstItem="gIy-jA-d4Z" firstAttribute="centerY" secondItem="xdw-Ia-GqJ" secondAttribute="centerY" id="n5e-pa-5GQ"/>
                             <constraint firstItem="QwI-sg-npO" firstAttribute="leading" secondItem="lo9-Cd-38E" secondAttribute="trailing" constant="8" id="rGW-kI-1wA"/>

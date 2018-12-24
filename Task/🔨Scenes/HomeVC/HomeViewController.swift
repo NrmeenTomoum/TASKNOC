@@ -17,92 +17,92 @@ protocol HomeDisplayLogic: class
     func displayIndecator()
     func stopIndecator()
     func createAlert(title: String, subTitle: String)
-  func displayListOfServers(viewModel: [Home.Server.ViewModel])
+    func displayListOfServers(viewModel: [Home.Server.ViewModel])
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic
 {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
-  var listOfServers : [Home.Server.ViewModel]?
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var listOfServers : [Home.Server.ViewModel]?
     var viewLoader = loader ()
     @IBOutlet weak var tableView: UITableView!
     // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = HomeInteractor()
-    let presenter = HomePresenter()
-    let router = HomeRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    tableView.rowHeight = UITableView.automaticDimension
-    tableView.rowHeight = Constants.ScreenSize.SCREEN_HEIGHT * 0.1
     
-      tableView.register(UINib(nibName: "ServerTableViewCell", bundle: nil), forCellReuseIdentifier:"ServerTableViewCell" )
-    getDataOfServers()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func getDataOfServers()
-  {
-    let request = Home.Server.Request(page: 0,size : 10)
-    interactor?.getServersData(request: request)
-  }
-  
-  func displayListOfServers(viewModel: [Home.Server.ViewModel])
-  {
-    listOfServers = viewModel
-    tableView.reloadData()
-  }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = Constants.ScreenSize.SCREEN_HEIGHT * 0.1
+        
+        tableView.register(UINib(nibName: "ServerTableViewCell", bundle: nil), forCellReuseIdentifier:"ServerTableViewCell" )
+        getDataOfServers()
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
+    
+    func getDataOfServers()
+    {
+        let request = Home.Server.Request(page: 0,size : 10)
+        interactor?.getServersData(request: request)
+    }
+    
+    func displayListOfServers(viewModel: [Home.Server.ViewModel])
+    {
+        listOfServers = viewModel
+        tableView.reloadData()
+    }
     func createAlert(title: String, subTitle: String) {
-             CAlert.createAlert(title: title, subTitle: subTitle,vc: self)
+        CAlert.createAlert(title: title, subTitle: subTitle,vc: self)
     }
     
     func displayIndecator()
     {
-         viewLoader.startIndecator(self.view)
+        viewLoader.startIndecator(self.view)
     }
     func stopIndecator()
     {
@@ -114,28 +114,25 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cindex = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServerTableViewCell", for: indexPath) as! ServerTableViewCell
-//    //    cell.config(title:displayedArtworks[cindex].title , ownerName: displayedArtworks[cindex].ownerName,
-//                    price: displayedArtworks[cindex].price,
-//                    heightXwidth: displayedArtworks[cindex].heightXwidth,
-//                    imageUrl: displayedArtworks[cindex].FullPath)
-//
-//
+        
+        cell.configCell(serverName: listOfServers![cindex].name, ipAddress: listOfServers![cindex].ipAddress, deviceIPSubnetMask: listOfServers![cindex].deviceIPSubnetMask, status: listOfServers![cindex].status)
+        
         return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let list = listOfServers
         {
-        return  list.count
+            return  list.count
         }
         else
         {
-            return 2
+            return 0
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        interactor?.id =   displayedArtworks[indexPath.row].id
-//        router?.routeToBrowseArtWorkDetails()
+        //        interactor?.id =   displayedArtworks[indexPath.row].id
+        //        router?.routeToBrowseArtWorkDetails()
     }
 }
 extension HomeViewController: FCAlertViewDelegate
