@@ -29,12 +29,15 @@ class HomePresenter: HomePresentationLogic
   func presentListOfServers(response: Home.Server.Response)
   {
     var list = [Home.Server.ViewModel]()
-    for item in response.content!
+    if let content = response.content
+    {
+    for item in content
     {
       
-        let viewModel = Home.Server.ViewModel(name: item.name ?? "", ipAddress: item.ipAddress ?? "" , deviceIPSubnetMask: item.ipSubnetMask ?? "", status: (item.status?.id ?? 1))
+        let viewModel = Home.Server.ViewModel(name: item.name ?? "", ipAddress: item.ipAddress ?? "" , deviceIPSubnetMask: item.ipSubnetMask ?? "", status: (item.status?.id ?? 0), isLoadingMore: response.last!)
         
         list.append(viewModel)
+    }
     }
     viewController?.displayListOfServers(viewModel: list)
   }

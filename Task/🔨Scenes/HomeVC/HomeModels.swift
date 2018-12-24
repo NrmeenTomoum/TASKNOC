@@ -29,6 +29,7 @@ enum Home
             var  ipAddress : String
             var  deviceIPSubnetMask : String
             var  status : Int
+            var isLoadingMore : Bool
         }
         class  Response : Mappable {
             var content : [ContentModel]?

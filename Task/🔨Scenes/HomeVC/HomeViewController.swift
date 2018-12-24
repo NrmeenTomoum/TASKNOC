@@ -22,6 +22,8 @@ protocol HomeDisplayLogic: class
 
 class HomeViewController: UIViewController, HomeDisplayLogic
 {
+    var isLoadingMore = false
+    var  indexOfPage = 0
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     var listOfServers : [Home.Server.ViewModel]?
@@ -74,6 +76,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.rowHeight = Constants.ScreenSize.SCREEN_HEIGHT * 0.1
         
@@ -87,13 +90,25 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     
     func getDataOfServers()
     {
-        let request = Home.Server.Request(page: 0,size : 10)
+        let request = Home.Server.Request(page: self.indexOfPage ,size : 10)
         interactor?.getServersData(request: request)
     }
     
     func displayListOfServers(viewModel: [Home.Server.ViewModel])
     {
-        listOfServers = viewModel
+        //  isLoadingMore = viewModel.isL
+        if listOfServers != nil
+        {
+            listOfServers?.append(contentsOf: viewModel)
+        }
+        else
+        {
+            listOfServers = viewModel
+        }
+        if viewModel.count > 0
+        {
+            isLoadingMore = viewModel[0].isLoadingMore
+        }
         tableView.reloadData()
     }
     func createAlert(title: String, subTitle: String) {
@@ -111,6 +126,16 @@ class HomeViewController: UIViewController, HomeDisplayLogic
 }
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource
 {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let contentOffset = scrollView.contentOffset.y
+        if !isLoadingMore && (maximumOffset - contentOffset) <= 100
+        {
+            self.indexOfPage = indexOfPage + 1
+            getDataOfServers()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cindex = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServerTableViewCell", for: indexPath) as! ServerTableViewCell
