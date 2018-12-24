@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxc-Lk-nPH">
+                                <rect key="frame" x="0.0" y="20" width="77" height="1004"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="QzH-dm-y9v" customClass="ProfileImage" customModule="Task" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="926.5" width="61.5" height="61.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="QzH-dm-y9v" secondAttribute="height" multiplier="1:1" id="20o-Jk-kcH"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dashedBorder" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.37254901959999998" green="0.67450980390000004" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZPm-4r-4nL" customClass="ProfileImage" customModule="Task" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="32" width="61.5" height="61.5"/>
+                                        <color key="backgroundColor" red="0.44400393962860107" green="0.45948910713195801" blue="0.87455040216445923" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ZPm-4r-4nL" secondAttribute="height" multiplier="1:1" id="CZb-Sf-Un8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dashedBorder" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.37254901959999998" green="0.67450980390000004" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUN-1K-GN8">
+                                        <rect key="frame" x="25" y="32" width="27" height="61.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="47"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16944131255149841" green="0.20674186944961548" blue="0.26275250315666199" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="ZPm-4r-4nL" firstAttribute="width" secondItem="ZPm-4r-4nL" secondAttribute="height" multiplier="1:1" id="4r4-8U-fK8"/>
+                                    <constraint firstItem="FUN-1K-GN8" firstAttribute="centerY" secondItem="ZPm-4r-4nL" secondAttribute="centerY" id="BT1-Vs-P0w"/>
+                                    <constraint firstAttribute="bottom" secondItem="QzH-dm-y9v" secondAttribute="bottom" constant="16" id="FFa-N4-XdF"/>
+                                    <constraint firstItem="ZPm-4r-4nL" firstAttribute="width" secondItem="QzH-dm-y9v" secondAttribute="width" id="FWf-Zu-fXJ"/>
+                                    <constraint firstItem="ZPm-4r-4nL" firstAttribute="leading" secondItem="cxc-Lk-nPH" secondAttribute="leading" constant="8" id="IDL-Vq-fYy"/>
+                                    <constraint firstItem="QzH-dm-y9v" firstAttribute="width" secondItem="cxc-Lk-nPH" secondAttribute="width" multiplier="0.8" id="JDF-9Z-zim"/>
+                                    <constraint firstItem="ZPm-4r-4nL" firstAttribute="top" secondItem="cxc-Lk-nPH" secondAttribute="top" constant="32" id="Sje-qB-MZT"/>
+                                    <constraint firstItem="FUN-1K-GN8" firstAttribute="centerX" secondItem="ZPm-4r-4nL" secondAttribute="centerX" id="cDz-XC-2j7"/>
+                                    <constraint firstItem="FUN-1K-GN8" firstAttribute="bottom" secondItem="ZPm-4r-4nL" secondAttribute="bottom" id="hUz-5s-5zU"/>
+                                    <constraint firstItem="QzH-dm-y9v" firstAttribute="leading" secondItem="cxc-Lk-nPH" secondAttribute="leading" constant="8" id="md7-f5-5rJ"/>
+                                    <constraint firstItem="FUN-1K-GN8" firstAttribute="top" secondItem="ZPm-4r-4nL" secondAttribute="top" id="tbf-2A-iAV"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q3e-ks-boQ">
+                                <rect key="frame" x="77" y="70" width="691" height="954"/>
+                                <color key="backgroundColor" red="0.96079725027084351" green="0.96076112985610962" blue="0.96078568696975708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="VuR-ee-Ug1"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Bhe-b6-iC3"/>
+                                    <outlet property="prefetchDataSource" destination="BYZ-38-t0r" id="M62-Ko-7bW"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp0-cN-Rnx">
+                                <rect key="frame" x="77" y="20" width="691" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cxc-Lk-nPH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5hZ-m7-IeS"/>
+                            <constraint firstItem="cxc-Lk-nPH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="6zi-JB-Lve"/>
+                            <constraint firstItem="Q3e-ks-boQ" firstAttribute="leading" secondItem="cxc-Lk-nPH" secondAttribute="trailing" id="9o3-tM-M1P"/>
+                            <constraint firstItem="Q3e-ks-boQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B5F-Px-kws"/>
+                            <constraint firstItem="hp0-cN-Rnx" firstAttribute="height" secondItem="cxc-Lk-nPH" secondAttribute="height" multiplier="0.05" id="Q4M-62-dHK"/>
+                            <constraint firstItem="hp0-cN-Rnx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="enO-ZM-nB5"/>
+                            <constraint firstItem="hp0-cN-Rnx" firstAttribute="leading" secondItem="cxc-Lk-nPH" secondAttribute="trailing" id="h5A-k8-iRT"/>
+                            <constraint firstItem="Q3e-ks-boQ" firstAttribute="top" secondItem="hp0-cN-Rnx" secondAttribute="bottom" id="hrQ-qt-EOd"/>
+                            <constraint firstItem="cxc-Lk-nPH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="q55-8d-g4s"/>
+                            <constraint firstItem="hp0-cN-Rnx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ult-CN-Vm7"/>
+                            <constraint firstItem="cxc-Lk-nPH" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="xQs-UP-MXJ"/>
+                            <constraint firstItem="Q3e-ks-boQ" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="yZH-f1-NX4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Q3e-ks-boQ" id="rRM-BV-jYo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-162.5" y="12.890625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="0.jpeg" width="500" height="500"/>
+    </resources>
+</document>
