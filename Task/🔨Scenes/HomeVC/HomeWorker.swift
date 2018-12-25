@@ -24,11 +24,11 @@ class HomeWorker
         
 //        let user = "admin@boot.com"
 //        let password = "admin"
-        let URL = Constants.Server.Services.getListOfServesData + "page=\(request.page)&size=\(request.size)"
+        var URL = Constants.Server.Services.getListOfServesData + "page=\(request.page)&size=\(request.size)"
         print("========================================>",URL)
         //.authenticate(user: "admin@boot.com", password: "admin")
           MyManager.sharedInstance.defaultManager.request(URL, method: .get , parameters: [:], encoding: JSONEncoding.default, headers: RequestComponent.headerComponent(requireAuthOrNot: false)).authenticate(usingCredential: credential).responseObject{(response: DataResponse< Home.Server.Response>)  in
-            let respons = response.result.value
+            var respons = response.result.value
             print("respons",response.result.value)
             switch response.result {
             case .success:
